@@ -1,4 +1,4 @@
-package com.kevinellis.controllers.models
+package com.kevinellis.models
 
 class DbTitleMatch(
     var id: Long = 0,
