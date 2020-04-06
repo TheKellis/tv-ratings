@@ -16,7 +16,7 @@ gunzip title_general_info_bundle.tsv.gz
 # [tconst -> (series/episode).id, primaryTitle -> (series/episode).name]
 INPUT_TITLE_GENERAL_FILE=title_general_info_bundle.tsv
 INPUT_RATINGS_FILE=ratings_bundle.tsv
-INPUT_EPISODE_FILE=sepisode_bundle.tsv
+INPUT_EPISODE_FILE=episode_bundle.tsv
 
 IFS=$'\t'
 while read tconst titleType primaryTitle originalTitle isAdult startYear endYear runtimeMinutes genres
