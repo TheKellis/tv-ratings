@@ -2,21 +2,21 @@
 
 # Download the three files
 # Grab the three relevant datasets
-# wget https://datasets.imdbws.com/title.episode.tsv.gz -O episode_bundle.tsv.gz
-# wget https://datasets.imdbws.com/title.ratings.tsv.gz -O ratings_bundle.tsv.gz
-# wget https://datasets.imdbws.com/title.basics.tsv.gz -O title_general_info_bundle.tsv.gz
+wget https://datasets.imdbws.com/title.episode.tsv.gz -O episode_bundle.tsv.gz
+wget https://datasets.imdbws.com/title.ratings.tsv.gz -O ratings_bundle.tsv.gz
+wget https://datasets.imdbws.com/title.basics.tsv.gz -O title_general_info_bundle.tsv.gz
 
 
-# # Unzip the files
-# gunzip episode_bundle.tsv.gz
-# gunzip ratings_bundle.tsv.gz
-# gunzip title_general_info_bundle.tsv.gz
+# Unzip the files
+gunzip episode_bundle.tsv.gz
+gunzip ratings_bundle.tsv.gz
+gunzip title_general_info_bundle.tsv.gz
 
 # Pass through title general bundle and populate series and episode tables with inital data
 # [tconst -> (series/episode).id, primaryTitle -> (series/episode).name]
-INPUT_TITLE_GENERAL_FILE=sample-general.tsv
-INPUT_RATINGS_FILE=sample-ratings.tsv
-INPUT_EPISODE_FILE=sample-episodes.tsv
+INPUT_TITLE_GENERAL_FILE=title_general_info_bundle.tsv
+INPUT_RATINGS_FILE=ratings_bundle.tsv
+INPUT_EPISODE_FILE=sepisode_bundle.tsv
 
 IFS=$'\t'
 while read tconst titleType primaryTitle originalTitle isAdult startYear endYear runtimeMinutes genres
