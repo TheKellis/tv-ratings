@@ -1,6 +1,6 @@
 package com.kevinellis.controllers
 
-import com.kevinellis.controllers.models.DbTitleMatch
+import com.kevinellis.models.DbTitleMatch
 import org.springframework.web.bind.annotation.*
 
 @RequestMapping("/ratings")

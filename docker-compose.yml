@@ -13,6 +13,7 @@ services:
       DB_USER: kevin
       DB_PASSWORD: password
       DB_PORT: 9001
+      DB_TABLE: test
     command: ["bash"]
     stdin_open: true
     depends_on:
@@ -28,8 +29,8 @@ services:
       HSQLDB_TRACE: 'true'
       HSQLDB_SILENT: 'false'
       HSQLDB_REMOTE: 'true'
-      HSQLDB_DATABASE_NAME: 'hsqldb'
-      HSQLDB_DATABASE_ALIAS: 'test'
+      HSQLDB_DATABASE_NAME: hsqldb
+      HSQLDB_DATABASE_ALIAS: test
       HSQLDB_DATABASE_HOST: 'localhost'
       HSQLDB_USER: 'kevin'
       HSQLDB_PASSWORD: 'password'
