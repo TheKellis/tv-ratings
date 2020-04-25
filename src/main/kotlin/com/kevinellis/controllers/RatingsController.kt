@@ -5,7 +5,6 @@ import com.kevinellis.models.EpisodeDto
 import com.kevinellis.models.SeasonDto
 import com.kevinellis.models.SeriesResultDto
 import com.kevinellis.services.RatingsService
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.*
 
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @Component
 class RatingsController(
-        private val ratingsService: RatingsService
+    private val ratingsService: RatingsService
 ) {
 
     @GetMapping(path = ["/series/{id}"],
@@ -32,7 +31,7 @@ class RatingsController(
         var testSeason1 = SeasonDto(seasonNumber = 1, episodes = arrayOf(testEpisode1, testEpisode2))
         var testSeason2 = SeasonDto(seasonNumber = 2, episodes = arrayOf(testEpisode1, testEpisode2))
         return SeriesResultDto(
-            seriesName = "testSeries", numSeasons = 1,seasons = arrayOf(testSeason1, testSeason2)
+            seriesName = "testSeries", numSeasons = 1, seasons = arrayOf(testSeason1, testSeason2)
         )
     }
 

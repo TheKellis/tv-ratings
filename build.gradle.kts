@@ -1,5 +1,16 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+buildscript {
+    repositories {
+        maven("https://plugins.gradle.org/m2/")
+    }
+    dependencies {
+        classpath("org.jlleitschuh.gradle:ktlint-gradle:8.2.0")
+    }
+}
+
+apply(plugin = "org.jlleitschuh.gradle.ktlint")
+
 plugins {
     kotlin("jvm") version "1.3.41"
     id("org.springframework.boot") version "2.2.6.RELEASE"
@@ -21,7 +32,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.hsqldb:hsqldb")
     compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.10.+")
-    //test
+    // test
 
     testCompile("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "junit")
