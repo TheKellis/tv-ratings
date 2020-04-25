@@ -1,7 +1,7 @@
-spring:
-  datasource:
-    driver-class-name: org.hsqldb.jdbc.JDBCDriver
-    url: jdbc:hsqldb:hsql://${DB_HOST}/${DB_TABLE}
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
-  jpa:hibernate.ddl-auto: update
+#spring:
+#  datasource:
+#    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+#    url: jdbc:hsqldb:hsql://${DB_HOST}/${DB_TABLE}
+#    username: ${DB_USER}
+#    password: ${DB_PASSWORD}
+#  jpa:hibernate.ddl-auto: update
