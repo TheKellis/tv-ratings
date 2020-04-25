@@ -37,8 +37,9 @@ class RatingsControllerTest {
 
     @Test
     fun testGetAllRatingsForSeries() {
-        Mockito.`when`(ratingsService.getRatingsForSeries()).thenReturn(sampleSeries)
+        var input = "testId"
+        Mockito.`when`(ratingsService.getRatingsForSeries(input)).thenReturn(sampleSeries)
 
-        Assertions.assertEquals(sampleSeries, ratingsService.getRatingsForSeries())
+        Assertions.assertEquals(sampleSeries, ratingsService.getRatingsForSeries(input))
     }
 }

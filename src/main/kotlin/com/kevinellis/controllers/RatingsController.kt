@@ -19,7 +19,7 @@ class RatingsController(
         name = "Retrieve Ratings",
         produces = ["application/json"])
     fun getAllRatingsForSeries(@PathVariable id: String): SeriesResultDto {
-        return ratingsService.getRatingsForSeries()
+        return ratingsService.getRatingsForSeries(id)
     }
 
     @GetMapping(path = ["/seriesTest/{id}"],

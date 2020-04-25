@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class RatingsService {
-    fun getRatingsForSeries(): SeriesResultDto {
+    fun getRatingsForSeries(id: String): SeriesResultDto {
         return SeriesResultDto(seasons = arrayOf())
     }
 }
