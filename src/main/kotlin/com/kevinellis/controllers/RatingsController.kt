@@ -4,17 +4,23 @@ import com.kevinellis.models.DbTitleMatch
 import com.kevinellis.models.EpisodeDto
 import com.kevinellis.models.SeasonDto
 import com.kevinellis.models.SeriesResultDto
+import com.kevinellis.services.RatingsService
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.*
 
 @RequestMapping("/ratings")
 @RestController
-class RatingsController {
+@Component
+class RatingsController(
+        private val ratingsService: RatingsService
+) {
 
     @GetMapping(path = ["/series/{id}"],
         name = "Retrieve Ratings",
         produces = ["application/json"])
     fun getAllRatingsForSeries(@PathVariable id: String): SeriesResultDto {
-        return SeriesResultDto(seasons = arrayOf())
+        return ratingsService.getRatingsForSeries()
     }
 
     @GetMapping(path = ["/seriesTest/{id}"],
