@@ -29,11 +29,12 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
-    compile("org.hsqldb:hsqldb")
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
     compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.10.+")
-    // test
+    compile("org.xerial:sqlite-jdbc:3.25.2")
+    compile("org.projectlombok:lombok")
 
+    // test
     testCompile("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "junit")
     }

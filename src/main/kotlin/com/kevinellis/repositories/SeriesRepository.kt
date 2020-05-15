@@ -1,6 +1,8 @@
 package com.kevinellis.repositories
 
-import com.kevinellis.dao.Series
-import org.springframework.data.repository.CrudRepository
+import com.kevinellis.dao.SeriesDao
+import java.util.*
 
-interface SeriesRepository : CrudRepository<Series, Long>
+interface SeriesRepository{
+    fun getSeriesInfoFromTitleId(inputId: String): Optional<SeriesDao>
+}
