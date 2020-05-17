@@ -18,7 +18,7 @@ class EpisodeRepositoryImplementation(
 ) : EpisodeRepository {
     override fun getAllEpisodesForSeries(seriesId: String): List<EpisodeDao> {
         var query =
-            "SELECT id, name, rating, num_votes, season_number, number from episodes e WHERE e.seriesId = :seriesId"
+            "SELECT id, name, rating, num_votes, season_number, number from episodes e WHERE e.series_id = :seriesId"
         var namedParameters = MapSqlParameterSource().addValue("seriesId", seriesId)
         return jdbcTemplate.query(query, namedParameters, EpisodeRowMapper())
     }
