@@ -15,15 +15,15 @@ import java.util.*
 @Component
 class SeriesRepositoryImplementation(
     var jdbcTemplate: NamedParameterJdbcTemplate
-): SeriesRepository {
+) : SeriesRepository {
     override fun getSeriesInfoFromTitleId(inputId: String): Optional<SeriesDao> {
         var query =
-                "SELECT id, name from series s WHERE s.id = :inputId limit 1";
-        var namedParameters = MapSqlParameterSource().addValue("inputId", inputId);
+            "SELECT id, name from series s WHERE s.id = :inputId limit 1"
+        var namedParameters = MapSqlParameterSource().addValue("inputId", inputId)
         return jdbcTemplate
-                .query(query, namedParameters,  SeriesRowMapper())
-                .stream()
-                .findFirst();
+            .query(query, namedParameters, SeriesRowMapper())
+            .stream()
+            .findFirst()
     }
 }
 
@@ -31,6 +31,7 @@ private class SeriesRowMapper : RowMapper<SeriesDao> {
     @Throws(SQLException::class)
     override fun mapRow(resultSet: ResultSet, i: Int): SeriesDao {
         return SeriesDao(
-                resultSet.getString("id"), resultSet.getString("name"))
+            resultSet.getString("id"), resultSet.getString("name")
+        )
     }
 }

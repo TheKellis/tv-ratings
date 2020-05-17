@@ -63,10 +63,10 @@ class RatingsServiceTest {
         val expectedSeriesResultDto: SeriesResultDto =
             SeriesResultDto(seriesName = testSeriesName, numSeasons = 2, seasons = expectedListOfSeasons)
 
-        //Act
+        // Act
         var result = ratingsService.getRatingsForSeries(testId)
 
-        //Assert
+        // Assert
         assertThat(result.numSeasons).isEqualTo(expectedSeriesResultDto.numSeasons)
         assertThat(result.seriesName).isEqualTo(expectedSeriesResultDto.seriesName)
         assertThat(result.seasons.size).isEqualTo(expectedSeriesResultDto.seasons.size)
@@ -116,7 +116,5 @@ class RatingsServiceTest {
 
         assertThat(result.episodes.get(0)).isEqualToComparingFieldByField(expectedSeasonDto.episodes.get(0))
         assertThat(result.episodes.size).isEqualTo(expectedSeasonDto.episodes.size)
-
     }
-
 }

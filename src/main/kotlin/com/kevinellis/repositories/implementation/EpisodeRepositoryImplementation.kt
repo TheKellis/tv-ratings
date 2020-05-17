@@ -20,7 +20,7 @@ class EpisodeRepositoryImplementation(
         var query =
             "SELECT id, name, rating, num_votes, season_number, number from episodes e WHERE e.seriesId = :seriesId"
         var namedParameters = MapSqlParameterSource().addValue("seriesId", seriesId)
-        return jdbcTemplate.query(query, namedParameters, EpisodeRowMapper());
+        return jdbcTemplate.query(query, namedParameters, EpisodeRowMapper())
     }
 }
 
