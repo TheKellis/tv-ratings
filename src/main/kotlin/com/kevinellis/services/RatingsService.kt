@@ -58,6 +58,7 @@ class RatingsService(
                 )
             )
         }
+        runningListOfEpisodesInCurrentSeason.sortBy { episodeDto -> episodeDto.number }
         return SeasonDto(seasonNumber = seasonNumber, episodes = runningListOfEpisodesInCurrentSeason)
     }
 }
