@@ -62,7 +62,7 @@ class RatingsServiceTest {
         Mockito.`when`(episodeRepository.getAllEpisodesForSeries(testId)).thenReturn(listOfEpisodes)
         val expectedSeriesResultDto: SeriesResultDto =
             SeriesResultDto(seriesName = testSeriesName, numSeasons = 2, seasons = expectedListOfSeasons)
-        
+
         //Act
         var result = ratingsService.getRatingsForSeries(testId)
 
