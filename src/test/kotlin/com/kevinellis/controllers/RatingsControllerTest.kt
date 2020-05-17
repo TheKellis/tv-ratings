@@ -23,10 +23,10 @@ class RatingsControllerTest {
     @BeforeAll
     fun setup() {
         sampleSeries = SeriesResultDto(
-            seasons = arrayOf(
+            seasons = listOf(
                 SeasonDto(
                     seasonNumber = 1,
-                    episodes = arrayOf(
+                    episodes = listOf(
                         EpisodeDto(number = 0),
                         EpisodeDto(number = 1)
                     )

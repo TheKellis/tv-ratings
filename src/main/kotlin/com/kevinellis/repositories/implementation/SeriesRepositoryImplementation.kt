@@ -21,16 +21,16 @@ class SeriesRepositoryImplementation(
                 "SELECT id, name from series s WHERE s.id = :inputId limit 1";
         var namedParameters = MapSqlParameterSource().addValue("inputId", inputId);
         return jdbcTemplate
-                .query(query, namedParameters,  ComplianceRowMapper())
+                .query(query, namedParameters,  SeriesRowMapper())
                 .stream()
                 .findFirst();
     }
 }
 
-private class SeriesRowMapper : RowMapper<SeriesDao?> {
+private class SeriesRowMapper : RowMapper<SeriesDao> {
     @Throws(SQLException::class)
-    override fun mapRow(resultSet: ResultSet, i: Int): ComplianceStatus? {
-        return ComplianceStatus(
-                resultSet.getString("case_step"), resultSet.getBoolean("complete"))
+    override fun mapRow(resultSet: ResultSet, i: Int): SeriesDao {
+        return SeriesDao(
+                resultSet.getString("id"), resultSet.getString("name"))
     }
 }
