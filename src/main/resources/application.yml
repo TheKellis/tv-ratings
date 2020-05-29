@@ -3,10 +3,4 @@ spring:
     url: jdbc:sqlite:tv_info
     driver-class-name: org.sqlite.JDBC
 
-#spring:
-#  datasource:
-#    driver-class-name: org.sqlite.JDBC
-#    url: jdbc:hsqldb:hsql://${DB_HOST}/${DB_TABLE}
-#    username: ${DB_USER}
-#    password: ${DB_PASSWORD}
-#  jpa:hibernate.ddl-auto: update
+server.servlet.context-path: /ratings
