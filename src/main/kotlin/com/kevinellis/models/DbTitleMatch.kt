@@ -1,6 +1,6 @@
 package com.kevinellis.models
 
 class DbTitleMatch(
-    var id: Long = 0,
+    var id: String = "",
     var title: String = ""
 )

@@ -10,6 +10,9 @@ import org.springframework.stereotype.Repository
 import java.sql.ResultSet
 import java.sql.SQLException
 import java.util.*
+import java.util.logging.Level
+import java.util.logging.Logger
+import java.util.stream.Collectors
 
 @Repository
 @Component
@@ -24,6 +27,22 @@ class SeriesRepositoryImplementation(
             .query(query, namedParameters, SeriesRowMapper())
             .stream()
             .findFirst()
+    }
+
+    override fun searchForSeriesMatches(inputSearchTerm: String): List<SeriesDao> {
+        var query =
+            "SELECT id, name from series s WHERE s.name like :finalSearchTerm limit 10"
+        val finalSearchTerm = "%" + inputSearchTerm.toLowerCase().trim().toString() + "%"
+        var namedParameters = MapSqlParameterSource().addValue("finalSearchTerm", finalSearchTerm)
+        var result = jdbcTemplate
+            .query(query, namedParameters, SeriesRowMapper())
+        Logger.getGlobal().log(Level.SEVERE, "Result size: " + result.size)
+        Logger.getGlobal().log(Level.SEVERE, "input term: " + finalSearchTerm)
+        return jdbcTemplate
+            .query(query, namedParameters, SeriesRowMapper())
+            .parallelStream()
+            .limit(10)
+            .collect(Collectors.toList())
     }
 }
 

@@ -27,10 +27,7 @@ class RatingsController(
         name = "Search for titles",
         produces = ["application/json"]
     )
-    fun getPossibleSeriesNamesWithIds(@PathVariable searchTerm: String): Array<DbTitleMatch> {
-        var test = DbTitleMatch(1, "one")
-        var test2 = DbTitleMatch(2, "two")
-
-        return arrayOf(test, test2)
+    fun getPossibleSeriesNamesWithIds(@PathVariable searchTerm: String): List<DbTitleMatch> {
+        return ratingsService.searchForSeriesMatches(searchTerm)
     }
 }

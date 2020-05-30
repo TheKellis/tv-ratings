@@ -5,4 +5,6 @@ import java.util.*
 
 interface SeriesRepository {
     fun getSeriesInfoFromTitleId(inputId: String): Optional<SeriesDao>
+
+    fun searchForSeriesMatches(inputSearchTerm: String): List<SeriesDao>
 }

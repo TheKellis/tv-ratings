@@ -2,6 +2,7 @@ package com.kevinellis.services
 
 import com.kevinellis.dao.EpisodeDao
 import com.kevinellis.dao.SeriesDao
+import com.kevinellis.models.DbTitleMatch
 import com.kevinellis.models.EpisodeDto
 import com.kevinellis.models.SeasonDto
 import com.kevinellis.models.SeriesResultDto
@@ -9,6 +10,9 @@ import com.kevinellis.repositories.EpisodeRepository
 import com.kevinellis.repositories.SeriesRepository
 import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
+import java.util.logging.Level
+import java.util.logging.Logger
+import java.util.stream.Collectors
 
 @Component
 @Service
@@ -26,6 +30,16 @@ class RatingsService(
             seriesName = seriesDao.name,
             numSeasons = numberOfSeasons
         )
+    }
+
+    fun searchForSeriesMatches(searchTerm: String): List<DbTitleMatch> {
+        return seriesRepository.searchForSeriesMatches(searchTerm)
+            .parallelStream()
+            .map { seriesDao ->
+                Logger.getGlobal().log(Level.SEVERE, "test log")
+                DbTitleMatch(id = seriesDao.id, title = seriesDao.name)
+            }
+            .collect(Collectors.toList())
     }
 
     fun putEpisodesInSeasonDtos(episodes: List<EpisodeDao>, numberOfSeasons: Int): List<SeasonDto> {
